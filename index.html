@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        body {
+            background-color: black;
+            color: greenyellow;
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', monospace;
+        }
+
+        .clock {
+            padding: 0;
+            margin: 0 auto;
+            width: 1820px;
+            height: 980px;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <title>Big damn clock</title>
+</head>
+<body>
+<div class="clock">
+    <div id="timer">00:00</div>
+</div>
+<script src="app/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="app/bower_components/jquery-bigtext/jquery-bigtext.js"></script>
+<script src="app/bower_components/moment/moment.js"></script>
+<script type="text/javascript">
+    function date_time() {
+        now = moment().format('HH:mm');
+        document.getElementById('timer').innerHTML = now;
+        $('#timer').bigText();
+        setTimeout(function () {
+            date_time();
+        }, 1000);
+    }
+
+    date_time();
+</script>
+</body>
+</html>
